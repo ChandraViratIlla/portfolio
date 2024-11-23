@@ -5,6 +5,7 @@
 @import '@fontsource/poiret-one'; /* Default weight is normal (400) */
 @import '@fontsource/metropolis'; /* Default weight is normal (400) */
 
+/* Root variables for light and dark themes */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -17,12 +18,50 @@
   }
 }
 
-body {
+/* Global styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
   color: var(--foreground);
   background: var(--background);
   font-family: "Poiret One", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  
 }
 
+/* Universal box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent overflowing of images/media */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Reset headings to use the preferred font */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Metropolis", Arial, Helvetica, sans-serif; /* For headings */
 }
+
+
+
+
+
+/* Additional fix for invisible scrollbar */
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar visibility */
+  height: 0;
+}
+
+/* Ensure no horizontal overflow */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+

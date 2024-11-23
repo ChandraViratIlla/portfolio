@@ -40,13 +40,13 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center h-full px-8 text-white space-y-6">
-        <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-400 font-[Metropolis]">
-          ILLA CHANDRA VIRAT
-        </h1>
-        <p className="text-3xl font-medium font-[Metropolis] text-gray-600">
+  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-400" style={{ fontFamily: 'cursive' }}>
+    ILLA CHANDRA VIRAT
+  </h1>
+        <p className="text-2xl sm:text-3xl md:text-4xl font-medium font-[Metropolis] text-gray-600">
           Full Stack Developer | Blogs Writer
         </p>
-        <p className="text-lg text-white max-w-2xl bg-opacity-80">
+        <p className="text-lg sm:text-xl md:text-2xl text-white max-w-2xl bg-opacity-80">
           Creating functional, scalable, and innovative solutions. Let’s build extraordinary experiences together.
         </p>
       </div>

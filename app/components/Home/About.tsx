@@ -32,7 +32,7 @@ export default function About() {
           >
             <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] w-full">
               <Image
-                src="/assets/image2.jpg"
+                src="/assets/image8.jpg"
                 alt="Illa Chandra Virat"
                 fill
                 className="object-cover rounded-xl sm:rounded-2xl shadow-xl"

@@ -1,35 +1,24 @@
 "use client";
 
-import { useState } from "react";
-import {
-  FiSend,
-  FiCheck,
-  FiAlertTriangle,
-  FiUser,
-  FiMail,
-  FiMessageCircle,
-} from "react-icons/fi";
+import React, { useState } from "react";
+import { FiSend, FiUser, FiMail, FiMessageCircle } from "react-icons/fi";
 
-export default function ContactSection() {
+
+const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState<
-    "idle" | "submitting" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-    // Reset status when user starts typing
     if (status !== "idle") setStatus("idle");
   };
 
@@ -67,7 +56,6 @@ export default function ContactSection() {
     setErrorMessage("");
 
     try {
-      // Simulated API call
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -84,135 +72,75 @@ export default function ContactSection() {
       setFormData({ name: "", email: "", message: "" });
     } catch (err) {
       setStatus("error");
-      setErrorMessage(
-        err instanceof Error ? err.message : "An unexpected error occurred"
-      );
+      setErrorMessage(err instanceof Error ? err.message : "An unexpected error occurred");
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-2xl bg-white shadow-2xl rounded-3xl overflow-hidden">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 text-center text-white">
-          <h2 className="text-4xl font-bold tracking-tight">
-            Get in <span className="text-yellow-300">Touch</span>
-          </h2>
-          <p className="mt-4 text-indigo-100">
-            Have a project in mind? Let&apos;s collaborate and make something
-            awesome!
-          </p>
-        </div>
-
-        {/* Form Container */}
-        <div className="p-8 space-y-6">
-          {/* Error Message */}
-          {status === "error" && (
-            <div className="bg-red-50 border border-red-200 text-red-600 p-4 rounded-lg flex items-center">
-              <FiAlertTriangle className="mr-3 text-2xl" />
-              <span>{errorMessage}</span>
-            </div>
-          )}
-
-          {/* Success Message */}
-          {status === "success" && (
-            <div className="bg-green-50 border border-green-200 text-green-600 p-4 rounded-lg flex items-center">
-              <FiCheck className="mr-3 text-2xl" />
-              <span>Your message has been sent successfully!</span>
-            </div>
-          )}
-
-          {/* Contact Form */}
+    <div id="contact" className="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-2xl w-full space-y-8 bg-white dark:bg-gray-800 shadow-2xl rounded-3xl overflow-hidden p-12">
+      <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500">
+        Contact Us
+      </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name Input */}
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiUser className="text-gray-400" />
-              </div>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="Your Name"
-                disabled={status === "submitting"}
-                className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 transition duration-300 ease-in-out"
+                className="w-full pl-10 pr-4 py-4 border-0 bg-gray-100 dark:bg-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 transition duration-300 text-lg"
               />
+              <FiUser className="absolute inset-y-0 left-3 my-auto text-gray-400" />
             </div>
 
-            {/* Email Input */}
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiMail className="text-gray-400" />
-              </div>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Your Email"
-                disabled={status === "submitting"}
-                className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 transition duration-300 ease-in-out"
+                className="w-full pl-10 pr-4 py-4 border-0 bg-gray-100 dark:bg-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 transition duration-300 text-lg"
               />
+              <FiMail className="absolute inset-y-0 left-3 my-auto text-gray-400" />
             </div>
 
-            {/* Message Textarea */}
             <div className="relative">
-              <div className="absolute top-3 left-0 pl-3 pointer-events-none">
-                <FiMessageCircle className="text-gray-400" />
-              </div>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Your Message"
-                rows={4}
-                disabled={status === "submitting"}
-                className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 transition duration-300 ease-in-out resize-none"
-              ></textarea>
+                rows={5}
+                className="w-full pl-10 pr-4 py-4 border-0 bg-gray-100 dark:bg-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 transition duration-300 resize-none text-lg"
+              />
+              <FiMessageCircle className="absolute top-4 left-3 text-gray-400" />
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-700 text-white rounded-lg 
-              hover:from-indigo-700 hover:to-purple-800 transition duration-300 ease-in-out
-              flex items-center justify-center space-x-2
-              disabled:opacity-50 disabled:cursor-not-allowed
-              transform hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl hover:from-blue-700 hover:to-indigo-800 transition duration-300 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 text-lg"
             >
-              {status === "submitting" ? (
-                <svg
-                  className="animate-spin h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-              ) : (
-                <>
-                  <FiSend />
-                  <span>Send Message</span>
-                </>
-              )}
+              <div className="flex items-center justify-center space-x-2">
+                <FiSend />
+                <span>Send Message</span>
+              </div>
             </button>
           </form>
+
+          {status === "error" && (
+            <p className="text-red-500 text-center mt-4">{errorMessage}</p>
+          )}
+          {status === "success" && (
+            <p className="text-green-500 text-center mt-4">Message sent successfully!</p>
+          )}
         </div>
       </div>
-    </div>
+    
   );
-}
+};
+
+export default ContactPage;

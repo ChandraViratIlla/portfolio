@@ -45,27 +45,27 @@ const Footer = () => {
       title: 'Quick Links',
       links: [
         { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
-        { name: 'Projects', href: '/projects' },
-        { name: 'Contact', href: '/contact' }
+        { name: 'About', href: '#about' },
+        { name: 'Projects', href: '#projects' },
+        { name: 'Contact', href: '#contact' }
       ]
     },
     {
       title: 'Resources',
       links: [
-        { name: 'Blog', href: '/blog' },
-        { name: 'Documentation', href: '/docs' },
-        { name: 'Portfolio', href: '/portfolio' },
-        { name: 'Tutorials', href: '/tutorials' }
+        { name: 'Blog', href: 'javascript:void(0)' },
+        { name: 'Documentation', href: 'javascript:void(0)' },
+        { name: 'Portfolio', href: 'javascript:void(0)' },
+        { name: 'Tutorials', href: 'javascript:void(0)' }
       ]
     },
     {
       title: 'Legal',
       links: [
-        { name: 'Privacy Policy', href: '/privacy' },
-        { name: 'Terms of Service', href: '/terms' },
-        { name: 'Cookies Policy', href: '/cookies' },
-        { name: 'Disclaimer', href: '/disclaimer' }
+        { name: 'Privacy Policy', href: 'javascript:void(0)' },
+        { name: 'Terms of Service', href: 'javascript:void(0)' },
+        { name: 'Cookies Policy', href: 'javascript:void(0)' },
+        { name: 'Disclaimer', href: 'javascript:void(0)' }
       ]
     }
   ];
@@ -134,13 +134,13 @@ const Footer = () => {
           
           <div className="flex space-x-4 text-sm text-gray-400">
             <Link 
-              href="/privacy" 
+              href="javascript:void(0)" 
               className="hover:text-white transition-colors"
             >
               Privacy Policy
             </Link>
             <Link 
-              href="/terms" 
+              href="javascript:void(0)" 
               className="hover:text-white transition-colors"
             >
               Terms of Service
