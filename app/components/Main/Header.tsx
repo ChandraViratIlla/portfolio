@@ -18,18 +18,13 @@ const navItems = [
 const socialLinks = [
   { 
     icon: FaGithub, 
-    href: "https://github.com/yourusername",
+    href: "https://github.com/ChandraViratIlla",
     hoverColor: "hover:text-purple-600"
   },
   { 
     icon: FaLinkedin, 
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://www.linkedin.com/in/chandra-virat-illa/",
     hoverColor: "hover:text-blue-600"
-  },
-  { 
-    icon: FaTwitter, 
-    href: "https://twitter.com/yourusername",
-    hoverColor: "hover:text-sky-500"
   }
 ];
 

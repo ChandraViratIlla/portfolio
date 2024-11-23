@@ -15,27 +15,17 @@ const Footer = () => {
   const socialLinks = [
     { 
       icon: FaGithub, 
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/ChandraViratIlla',
       label: 'GitHub'
     },
     { 
       icon: FaLinkedin, 
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://www.linkedin.com/in/chandra-virat-illa/',
       label: 'LinkedIn'
     },
     { 
-      icon: FaTwitter, 
-      href: 'https://twitter.com/yourusername',
-      label: 'Twitter'
-    },
-    { 
-      icon: FaInstagram, 
-      href: 'https://instagram.com/yourusername',
-      label: 'Instagram'
-    },
-    { 
       icon: FaEnvelope, 
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:maxy22a9@gmail.com',
       label: 'Email'
     }
   ];
