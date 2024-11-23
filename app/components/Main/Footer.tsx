@@ -4,8 +4,7 @@ import Link from 'next/link';
 import { 
   FaGithub, 
   FaLinkedin, 
-  FaTwitter, 
-  FaInstagram, 
+ 
   FaEnvelope 
 } from 'react-icons/fa';
 
